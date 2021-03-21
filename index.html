@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiru's Meme Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Meme Generator</h1>
+    </div>
+    <section id="container">
+        <form type="submit" name = "form" id = "form">
+
+            <label for="image">URL link to image</label>
+            <input type="url" id="image" name="image" placeholder="Copy URL here...">
+        
+            <label for="toptext">Top Text</label>
+            <input type="text" id="toptext" name="toptext" placeholder="Top Text...">
+        
+            <label for="bottomtext">Bottom Text</label>
+            <input type="text" id="bottomtext" name="bottomtext" placeholder="Bottom Text...">
+
+            <input type ="submit" value="Add Meme">
+        </form>
+        <button name="delete-meme" id="delete-meme">Delete Meme</button>
+    </section>
+    <section id="meme-container">
+    </section>
+</body>
+<script> 
+    let firstButton = document.querySelector("#form");
+    let memeSection = document.getElementById("meme-container");
+    firstButton.addEventListener('submit', function(){
+        let topTextInput = document.getElementById("toptext");
+        let bottomTextInput = document.getElementById("bottomtext");
+        let imageInput = document.getElementById("image");
+        let generateMeme = document.getElementById("first_button");
+        let memeDiv = document.createElement("div");
+        memeDiv.id = "meme";
+        memeDiv.className = "memeclass";
+
+        let topDiv = document.createElement("div"); 
+        topDiv.innerText = topTextInput.value;
+        topDiv.id = "top";
+        
+        let bottomDiv = document.createElement("div"); 
+        bottomDiv.innerText= bottomTextInput.value;
+        bottomDiv.id = "bottom";
+        
+        let elem = document.createElement("img");
+        elem.id = "meme-image";
+        elem.setAttribute("src", imageInput.value);
+        elem.setAttribute("width", 300);
+        elem.setAttribute("height", 300);
+        memeDiv.appendChild(elem);
+        memeDiv.appendChild(topDiv);
+        memeDiv.appendChild(bottomDiv);
+        memeSection.appendChild(memeDiv);
+        
+        event.preventDefault();
+    })
+
+    let secondButton = document.querySelector("#delete-meme");
+    secondButton.addEventListener('click', function() {
+        let memes = document.getElementsByClassName("memeclass");
+        let lastMeme = memes.length-1;
+        memeSection.removeChild(memes[lastMeme]);
+
+        event.preventDefault();
+    })
+</script>
+</html>

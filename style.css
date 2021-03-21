@@ -1,0 +1,107 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.header {
+    background-color:darkred;
+    color: white;
+}
+
+body{
+    width: 100%;
+    background: url(https://www.wallpapers13.com/wp-content/uploads/2019/03/Golden-Gate-Bridge-Blue-Night-Suspension-bridge-in-San-Francisco-California-United-States-4K-Ultra-HD-Wallpaper-for-Desktop-And-Mobile-Phones-915x515.jpg) no-repeat;
+    margin: 0%;
+    background-size: cover;
+    margin-top:20px;
+    text-align: center;
+}
+
+#container {
+    width: 40%;
+    background:rgba(0,0,0,0.6);
+    padding: 3%;
+    padding-bottom: 3%;
+    margin: auto;
+    color: white;
+    text-align: center;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: .5px white;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+
+  input[type=url], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: .5px white;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+
+input[type=submit] {
+    background-color:ghostwhite;
+    padding: 10px 30px;
+}
+
+input[type=submit]:hover{
+    background-color: darkblue;
+    color: white;
+}
+
+#delete-meme {
+    background-color: ghostwhite;
+    padding: 10px 30px;
+    margin-top: 10px;
+}
+
+#delete-meme:hover {
+    background-color: darkred;
+    color: white;
+}
+
+#meme-container {
+    display:inline-flex;
+    justify-content: center;
+    background:rgba(0,0,0,0.6);
+    height: 350px;
+    margin-top: 10px;
+}
+
+#meme {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    align-items: center;
+    margin: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#top {
+    position: absolute;
+    align-self: center;
+    top: 5px;
+    right: 20px;
+    left: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    font-size: 30px;
+}
+
+#bottom {
+    position: absolute;
+    align-self: center;
+    bottom: 5px;
+    right: 20px;
+    left: 20px;
+    font: caption;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    font-size: 30px;
+}

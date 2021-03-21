@@ -71,10 +71,14 @@
     let secondButton = document.querySelector("#delete-meme");
     secondButton.addEventListener('click', function() {
         let memes = document.getElementsByClassName("memeclass");
+        if (memes.length == 0) {
+            alert("There are no more memes to delete");
+        } else {
         let lastMeme = memes.length-1;
         memeSection.removeChild(memes[lastMeme]);
 
         event.preventDefault();
+        }
     })
 </script>
 </html>

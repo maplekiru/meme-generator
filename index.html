@@ -38,6 +38,7 @@
         
         if ((imageInput.value.length == 0) || (topTextInput.value.length == 0 && bottomTextInput.value.length == 0)) {
             alert("Please check your submission and try again!");
+            event.preventDefault();
         } else {
 
         let memeDiv = document.createElement("div");
@@ -73,6 +74,7 @@
         let memes = document.getElementsByClassName("memeclass");
         if (memes.length == 0) {
             alert("There are no more memes to delete");
+            event.preventDefault();
         } else {
         let lastMeme = memes.length-1;
         memeSection.removeChild(memes[lastMeme]);

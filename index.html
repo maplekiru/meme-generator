@@ -31,43 +31,48 @@
 <script> 
     let firstButton = document.querySelector("#form");
     let memeSection = document.getElementById("meme-container");
+    let i = 0;
+    let memeSelected;
     firstButton.addEventListener('submit', function(){
         let topTextInput = document.getElementById("toptext");
         let bottomTextInput = document.getElementById("bottomtext");
         let imageInput = document.getElementById("image");
-        
+
         if ((imageInput.value.length == 0) || (topTextInput.value.length == 0 && bottomTextInput.value.length == 0)) {
             alert("Please check your submission and try again!");
             event.preventDefault();
         } else {
+            let memeDiv = document.createElement("div");
+            memeDiv.id = ++i;
+            memeDiv.className = "memeclass";
 
-        let memeDiv = document.createElement("div");
-        memeDiv.id = "meme";
-        memeDiv.className = "memeclass";
+            let topDiv = document.createElement("div"); 
+            topDiv.innerText = topTextInput.value;
+            topDiv.id = "top";
+            
+            let bottomDiv = document.createElement("div"); 
+            bottomDiv.innerText= bottomTextInput.value;
+            bottomDiv.id = "bottom";
+            
+            let elem = document.createElement("img");
+            elem.id = "meme-image";
+            elem.setAttribute("src", imageInput.value);
+            elem.setAttribute("width", 300);
+            elem.setAttribute("height", 300);
+            memeDiv.appendChild(elem);
+            memeDiv.appendChild(topDiv);
+            memeDiv.appendChild(bottomDiv);
+            memeSection.appendChild(memeDiv);
 
-        let topDiv = document.createElement("div"); 
-        topDiv.innerText = topTextInput.value;
-        topDiv.id = "top";
-        
-        let bottomDiv = document.createElement("div"); 
-        bottomDiv.innerText= bottomTextInput.value;
-        bottomDiv.id = "bottom";
-        
-        let elem = document.createElement("img");
-        elem.id = "meme-image";
-        elem.setAttribute("src", imageInput.value);
-        elem.setAttribute("width", 300);
-        elem.setAttribute("height", 300);
-        memeDiv.appendChild(elem);
-        memeDiv.appendChild(topDiv);
-        memeDiv.appendChild(bottomDiv);
-        memeSection.appendChild(memeDiv);
+            document.getElementById("form").reset();
+            
+            memeDiv.addEventListener('click', function() {
+                memeSelected = memeDiv;
+            });
 
-        document.getElementById("form").reset()
-        
-        event.preventDefault();
+            event.preventDefault();
         }
-    })
+    });
 
     let secondButton = document.querySelector("#delete-meme");
     secondButton.addEventListener('click', function() {
@@ -76,11 +81,10 @@
             alert("There are no more memes to delete");
             event.preventDefault();
         } else {
-        let lastMeme = memes.length-1;
-        memeSection.removeChild(memes[lastMeme]);
+            memeSection.removeChild(memeSelected);
 
-        event.preventDefault();
+            event.preventDefault();
         }
-    })
+    });
 </script>
 </html>

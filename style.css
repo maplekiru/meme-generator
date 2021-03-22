@@ -73,7 +73,7 @@ input[type=submit]:hover{
     margin-top: 10px;
 }
 
-#meme {
+.memeclass {
     width: 300px;
     height: 300px;
     position: relative;
